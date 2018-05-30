@@ -23,17 +23,17 @@ $('#watch').on('click',function(){
     maximumAge: 3600000
   }
    
-  var watchID = navigator.geolocation.getCurrentPosition(onSuccess,onError,options);
+  var watchID=navigator.geolocation.getCurrentPosition(onSuccess,onError,options);
   function onSuccess(position){
 	  
    alert('Latitude: '    +position.coords.latitude   +'\n' +
-     'Longuitude: '      +position.coords.longitude +'\n' +
+     'Longitude: '      +position.coords.longitude +'\n' +
 	 'Altitude: '        +position.coords.altitude   + '\n' +
 	 'Accuracy: '        +position.coords.accuracy +'\n' +
 	 'Altitude Accuracy: '        +position.coords.altitudeAccuracy   + '\n' +
 	 'Heading: '      +position.coords.heading +'\n' +
 	 'Speed: '        +position.coords.speed   + '\n' +
-	 'Timestamp: '      +position.coords.timestamp +'\n');
+	 'Timestamp: '      +position.timestamp +'\n');
   };
   
   function onError(error){
@@ -48,18 +48,18 @@ function watchPosition(){
 		enableHighAccuracy : true,
 	}
 	
-  var watchID = navigator.geolocation.getCurrentPosition(onSuccess,onError,options);
+  var watchID=navigator.geolocation.watchPosition(onSuccess,onError,options);
   function onSuccess(position){
   
   
-$('#latitude').html(position.coords.latitude);
+$('#latitud').html(position.coords.latitude);
 $('#longitud').html(position.coords.longitude);
 $('#altitud').html(position.coords.altitude);
 $('#accuracy').html(position.coords.accuracy);
 $('#aaccuracy').html(position.coords.altitudeAccuracy);
 $('#headingg').html(position.coords.heading);
 $('#speed').html(position.coords.speed);
-$('#timestamp').html(position.coords.timestamp); 
+$('#timestamp').html(position.timestamp); 
   };
   
   function onError(error){
